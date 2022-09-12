@@ -7,6 +7,7 @@ public class PiggyBank : MonoBehaviour
     private int tenCentsCoins;
     private int twentyFiveCentsCoins;
     private int fiftyCentsCoins;
+    private double taxes = 0.25;
     
     public void AddATenCentCoin()
     {
@@ -35,8 +36,18 @@ public class PiggyBank : MonoBehaviour
         fiftyCentsCoins = 0;
     }
 
+    public int GetAmountOfCoins()
+    {
+        return tenCentsCoins + fiftyCentsCoins + twentyFiveCentsCoins;
+    }
+
+    public double SavedAfterTaxes()
+    {
+        return GetSavedAmount() - GetSavedAmount() * taxes;
+    }
+        
     public string Extension()
     {
-        return "This is the extension function.";
+        return "The saved amount after taxes is " + SavedAfterTaxes();
     }
 }

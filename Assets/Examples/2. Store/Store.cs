@@ -87,8 +87,31 @@ public class Store : MonoBehaviour
         money += moneyEarned;
     }
 
+    public int GetTotalUnitsSold()
+    {
+        return product1.GetAmountUnitsSold() + product2.GetAmountUnitsSold() + product3.GetAmountUnitsSold();
+    }
+
+    public int MostSold()
+    {
+        if (product1.GetAmountUnitsSold() > product2.GetAmountUnitsSold() && product1.GetAmountUnitsSold() > product3.GetAmountUnitsSold())
+        {
+            return 1;
+        }
+        else if (product2.GetAmountUnitsSold() > product1.GetAmountUnitsSold() &&
+                 product2.GetAmountUnitsSold() > product3.GetAmountUnitsSold())
+        {
+            return 2;
+        }
+        else ;
+        {
+            return 3;
+        }
+    }
+
     public string Extension()
     {
-        return "This is the extension function.";
+        
+        return "The most sold item is " + MostSold();
     }
 }

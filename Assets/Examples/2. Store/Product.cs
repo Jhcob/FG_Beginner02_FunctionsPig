@@ -8,6 +8,7 @@ public class Product : MonoBehaviour
     private float priceToCostumer;
     private int currentAmount;
     private int shelfLimit;
+    public int unitsSold;
 
     public void SetShelfLimit(int limit)
     {
@@ -43,6 +44,12 @@ public class Product : MonoBehaviour
     public void SellAmount(int quantity)
     {
         currentAmount -= quantity;
+        unitsSold += quantity;
+    }
+
+    public int GetAmountUnitsSold()
+    {
+        return unitsSold;
     }
 
     public int SpaceLeft()
